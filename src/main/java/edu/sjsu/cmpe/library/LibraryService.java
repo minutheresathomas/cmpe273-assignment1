@@ -27,6 +27,9 @@ public class LibraryService extends Service<LibraryServiceConfiguration> {
     @Override
     public void run(LibraryServiceConfiguration configuration,
 	    Environment environment) throws Exception {
+        environment.setJerseyProperty(ResourceConfig.PROPERTY_CONTAINER_REQUEST_FILTERS, LoggingFilter.class.getName());
+    	environment.setJerseyProperty(ResourceConfig.PROPERTY_CONTAINER_RESPONSE_FILTERS, LoggingFilter.class.getName());
+
 	/** Root API */
 	environment.addResource(RootResource.class);
 	/** Books APIs */
