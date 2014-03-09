@@ -128,7 +128,6 @@ public class BookResource {
 		
 		if(responseBuilder != null)
 		{
-			
 			return responseBuilder.status(304).cacheControl(cache).tag(etag).build();
 		}
 		

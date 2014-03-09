@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import edu.sjsu.cmpe.library.domain.Reviews;
 
-@JsonPropertyOrder(alphabetic = false)
+@JsonPropertyOrder({"reviews", "review", "links"})
 public class ReviewsDto extends LinksDto{
 	
 	@JsonInclude(Include.NON_NULL)

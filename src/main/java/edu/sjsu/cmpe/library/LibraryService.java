@@ -2,6 +2,8 @@ package edu.sjsu.cmpe.library;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.sun.jersey.api.container.filter.LoggingFilter;
+import com.sun.jersey.api.core.ResourceConfig;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
@@ -27,13 +29,15 @@ public class LibraryService extends Service<LibraryServiceConfiguration> {
     @Override
     public void run(LibraryServiceConfiguration configuration,
 	    Environment environment) throws Exception {
+    	environment.setJerseyProperty(ResourceConfig.PROPERTY_CONTAINER_REQUEST_FILTERS, LoggingFilter.class.getName());
+    	environment.setJerseyProperty(ResourceConfig.PROPERTY_CONTAINER_RESPONSE_FILTERS, LoggingFilter.class.getName());
 	/** Root API */
 	environment.addResource(RootResource.class);
 	/** Books APIs */
 	BookRepositoryInterface bookRepository = new BookRepository(
 		new ConcurrentHashMap<Long, Book>());
 	environment.addResource(new BookResource(bookRepository));
-	/** Review APIs */
 	/** Add new resources here */
+	
     }
 }

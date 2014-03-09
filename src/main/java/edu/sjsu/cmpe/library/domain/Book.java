@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
-@JsonPropertyOrder({"isbn", "title", "publication-date", "languages", "num_pages", "status", "reviews", "authors"})
+@JsonPropertyOrder({"isbn", "title", "publication-date", "language", "num_pages", "status", "reviews", "authors"})
 public class Book {
 	
 	@JsonProperty

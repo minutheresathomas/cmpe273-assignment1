@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import edu.sjsu.cmpe.library.domain.Authors;
 
 @JsonPropertyOrder(alphabetic = true)
-public class AuthorLinksDto extends Authors {
+public class AuthorLinksDto extends Authors{
 	
 	private List<LinkDto> authors = new ArrayList<LinkDto>();
 
@@ -29,4 +29,5 @@ public class AuthorLinksDto extends Authors {
 	public void setAuthors(List<LinkDto> authors) {
 		this.authors = authors;
 	}
+
 }
