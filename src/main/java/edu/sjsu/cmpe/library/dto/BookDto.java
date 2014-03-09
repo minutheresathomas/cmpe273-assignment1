@@ -1,33 +1,40 @@
 package edu.sjsu.cmpe.library.dto;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import edu.sjsu.cmpe.library.domain.Book;
+import edu.sjsu.cmpe.library.domain.Authors;
 
 @JsonPropertyOrder(alphabetic = true)
 public class BookDto extends LinksDto {
-    private Book book;
+    
+	@JsonInclude(Include.NON_NULL)
+	private Book book;
 
     /**
-     * @param book
-     */
-    public BookDto(Book book) {
-	super();
-	this.book = book;
-    }
+	 * 
+	 */
+	public BookDto() {
+		super();
+	}
 
-    /**
-     * @return the book
-     */
-    public Book getBook() {
-	return book;
-    }
+	/**
+	 * @param book
+	 */
+	public BookDto(Book book) {
+		super();
+		this.book = book;
+	}
 
-    /**
-     * @param book
-     *            the book to set
-     */
-    public void setBook(Book book) {
-	this.book = book;
-    }
+	/**
+	 * @return the book
+	 */
+	public Book getBook() {
+		return book;
+	}
+
 }
